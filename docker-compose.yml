@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # Database initialization service
+  db-init:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/app/data
+    command: python -m scripts.create_database
+    networks:
+      - mcp-network
+
+  # MCP Server service
+  mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    command: python -m car_mcp.mcp.server
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      db-init:
+        condition: service_completed_successfully
+    networks:
+      - mcp-network
+
+  # Agent service
+  agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./.env:/app/.env
+    command: python -m car_mcp.agent.agent
+    environment:
+      - OLLAMA_MODEL=qwen2.5-coder:latest
+      - OLLAMA_BASE_URL=http://192.168.100.35:11434
+      - MCP_SERVER_URL=http://mcp-server:8000/sse
+    depends_on:
+      mcp-server:
+        condition: service_started
+    networks:
+      - mcp-network
+
+networks:
+  mcp-network:
+    driver: bridge
