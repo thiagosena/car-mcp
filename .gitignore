@@ -151,3 +151,8 @@ Desktop.ini
 *.meta
 *.dat
 *.tmp
+
+# database
+*.db
+*.sqlite
+*.sqlite3
