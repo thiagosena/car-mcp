@@ -1,0 +1,40 @@
+{
+    "name": "MCP Project Python 3",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    // Uncomment the next line if you want to keep your containers running after VS Code shuts down
+    "shutdownAction": "stopContainer",
+    "postCreateCommand": "uv sync",
+    //"remoteUser": "vscode",
+    "forwardPorts": [
+        9011
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.black-formatter",
+                "ms-python.debugpy",
+                "ms-python.pylint",
+                "ms-python.vscode-pylance",
+                "njpwener.autodocstring",
+                "visualstudioexptteam.vscodeintellicode",
+                "donjayamanne.python-environment-manager",
+                "humao.rest-client",
+                "ms-python.isort",
+                "cweijan.vscode-database-client2"
+            ],
+            "settings": {
+                "python.analysis.autoImportCompletions": true,
+                "editor.formatOnSave": true,
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.languageServer": "Pylance",
+                "python.analysis.extraPaths": [
+                    "${workspaceFolder}"
+                ]
+            }
+        }
+    }
+}
