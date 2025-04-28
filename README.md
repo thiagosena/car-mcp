@@ -2,13 +2,13 @@
 
 
           
-# MCP-Car: Automobile Search System
+# Car-MCP: Automobile Search System
 
 A car search system that uses the MCP (Model-Client-Protocol) protocol and a virtual agent to facilitate vehicle searches through natural language.
 
 ## 📋 About the Project
 
-MCP-Car is a system that allows users to search for automobiles using natural language. The system employs a virtual agent that interprets user requests, extracts search criteria, and presents results in a user-friendly manner.
+Car-MCP is a system that allows users to search for automobiles using natural language. The system employs a virtual agent that interprets user requests, extracts search criteria, and presents results in a user-friendly manner.
 
 ### Main Features
 
@@ -33,7 +33,7 @@ The project follows an architecture based on the MCP (Model-Client-Protocol) pro
 ## 📦 Package Structure
 
 ```
-mcp-car/
+car-mcp/
 ├── car_mcp/                  # Main package
 │   ├── agent/                # Virtual agent module
 │   │   ├── agent.py          # Virtual agent implementation
@@ -66,8 +66,8 @@ This project uses Docker and docker-compose to manage the development environmen
 ### Steps to Run the Project Using Docker Compose
 1. Clone the repository:
    ```bash
-   git clone https://github.com/thiagosena/mcp-car.git
-   cd mcp-car
+   git clone https://github.com/thiagosena/car-mcp.git
+   cd car-mcp
    ```
 2. Build and run the containers:
    ```bash
@@ -94,8 +94,8 @@ This project supports development with DevContainers, allowing for a consistent 
 
 1. Clone the repository and open the project in VS Code:
    ```bash
-   git clone https://github.com/thiagosena/mcp-car.git
-   cd mcp-car
+   git clone https://github.com/thiagosena/car-mcp.git
+   cd car-mcp
    code .
    ```
 2. Click on the blue icon in the bottom-left corner
@@ -191,10 +191,6 @@ The project uses the following development tools:
 The project's test coverage is as follows:
 ![Tests](doc/tests.png)
 ![Coverage](doc/cov.png)
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 👨‍💻 Author
 
