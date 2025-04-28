@@ -25,7 +25,7 @@ The project follows an architecture based on the MCP (Model-Client-Protocol) pro
 
 ### Main Components
 
-- **Virtual Agent**: Conversation interface that interprets user requests
+- **Virtual Agent**: Conversation interface that interprets user requests and sends them to LLM (Ollama) to organize filters that will be used in the database
 - **MCP Client**: Manages communication with the MCP server using Server-Sent Events (SSE)
 - **MCP Server**: Processes queries and returns results from the database
 - **Database**: Stores information about automobiles
